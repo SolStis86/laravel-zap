@@ -24,7 +24,7 @@ trait HasSchedules
      */
     public function schedules(): MorphMany
     {
-        return $this->morphMany(Schedule::class, 'schedulable');
+        return $this->morphMany(config('zap.schedule_model'), 'schedulable');
     }
 
     /**
@@ -97,7 +97,7 @@ trait HasSchedules
     public function isAvailableAt(string $date, string $startTime, string $endTime): bool
     {
         // Get all active schedules for this model on this date
-        $schedules = \Zap\Models\Schedule::where('schedulable_type', get_class($this))
+        $schedules = config('zap.schedule_model')::where('schedulable_type', get_class($this))
             ->where('schedulable_id', $this->getKey())
             ->active()
             ->forDate($date)

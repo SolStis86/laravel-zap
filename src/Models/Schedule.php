@@ -75,7 +75,7 @@ class Schedule extends Model
      */
     public function periods(): HasMany
     {
-        return $this->hasMany(SchedulePeriod::class);
+        return $this->hasMany(config('zap.schedule_period_model'));
     }
 
     /**

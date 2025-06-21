@@ -1,5 +1,8 @@
 <?php
 
+use Zap\Models\Schedule;
+use Zap\Models\SchedulePeriod;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -122,4 +125,16 @@ return [
     'events' => [
         'schedule_created' => true,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Models Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configure the models the package should use.
+    |
+    */
+    'schedule_model' => Schedule::class,
+
+    'schedule_period_model' => SchedulePeriod::class,
 ];
