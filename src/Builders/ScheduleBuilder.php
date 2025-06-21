@@ -314,4 +314,10 @@ class ScheduleBuilder
 
         return $clone;
     }
+    
+    public function addAttribute(string $key, mixed $value): self
+    {
+        $this->attributes[$key] = $value;
+        return $this;
+    }
 }
